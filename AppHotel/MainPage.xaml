@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppHotel.MainPage"
+    Title="App Hotel"
+    BackgroundColor="#F4F6FA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="22" Spacing="18">
+
+            <Grid ColumnDefinitions="*,Auto">
+                <VerticalStackLayout Spacing="2">
+                    <Label Text="APP HOTEL" FontSize="14" FontAttributes="Bold"
+                           TextColor="#64748B" />
+                    <Label Text="Sua hospedagem começa aqui"
+                           FontSize="24" FontAttributes="Bold"
+                           TextColor="#14213D" />
+                </VerticalStackLayout>
+                <Label Grid.Column="1" Text="🏨" FontSize="38"
+                       VerticalOptions="Center" />
+            </Grid>
+
+            <Border BackgroundColor="#173B63" StrokeThickness="0"
+                    StrokeShape="RoundRectangle 22" Padding="20">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Bem-vindo ao App Hotel"
+                           FontSize="22" FontAttributes="Bold"
+                           TextColor="White" />
+                    <Label Text="Encontre conforto, praticidade e uma estadia especial."
+                           FontSize="14" TextColor="#E6EEF8" />
+                    <Label Text="Planeje sua próxima viagem!"
+                           FontSize="13" FontAttributes="Bold"
+                           TextColor="#F5C66A" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Faça sua reserva" FontSize="20"
+                   FontAttributes="Bold" TextColor="#14213D" />
+
+            <Border BackgroundColor="White" Stroke="#E2E8F0"
+                    StrokeShape="RoundRectangle 18" Padding="16">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Data de entrada" FontAttributes="Bold"
+                           TextColor="#334155" />
+                    <DatePicker x:Name="CheckInDatePicker"
+                                Format="dd/MM/yyyy"
+                                TextColor="#14213D" />
+
+                    <BoxView HeightRequest="1" Color="#E2E8F0" />
+
+                    <Label Text="Tipo de acomodação" FontAttributes="Bold"
+                           TextColor="#334155" />
+                    <Picker x:Name="RoomPicker"
+                            Title="Selecione um quarto"
+                            TextColor="#14213D"
+                            SelectedIndex="0">
+                        <Picker.Items>
+                            <x:String>Quarto Standard</x:String>
+                            <x:String>Quarto Executivo</x:String>
+                            <x:String>Suíte Família</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <BoxView HeightRequest="1" Color="#E2E8F0" />
+
+                    <Label Text="Quantidade de hóspedes" FontAttributes="Bold"
+                           TextColor="#334155" />
+                    <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                        <Label x:Name="GuestCountLabel" Text="1 hóspede"
+                               VerticalOptions="Center" TextColor="#334155" />
+                        <Stepper x:Name="GuestStepper" Grid.Column="1"
+                                 Minimum="1" Maximum="6" Increment="1"
+                                 Value="1" ValueChanged="OnGuestsChanged" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Consultar reserva"
+                    BackgroundColor="#E5A93D"
+                    TextColor="#14213D"
+                    FontAttributes="Bold"
+                    CornerRadius="14"
+                    HeightRequest="52"
+                    Clicked="OnReserveClicked" />
+
+            <Button Text="Sobre o aplicativo"
+                    BackgroundColor="Transparent"
+                    TextColor="#173B63"
+                    BorderColor="#173B63"
+                    BorderWidth="1"
+                    CornerRadius="14"
+                    HeightRequest="48"
+                    Clicked="OnAboutClicked" />
+
+            <Label Text="App Hotel • 2026"
+                   FontSize="12" TextColor="#64748B"
+                   HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
